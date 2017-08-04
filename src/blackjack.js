@@ -14,7 +14,19 @@ class BlackJack{
         }
 
 
-        console.log(trump, allTump);
+        console.log(trump, allTrump);
+    }
+    getAllCards(){
+        let allTrump = [];
+
+        for (let m of Trump.ALL_MARK) {    
+            allTrump.push(... new Array(13)
+                .fill(0)
+                .map((_, i) => i + 1)
+                .map(v => new Trump(m, v))
+            )
+        }
+        return allTrump
     }
 }
 module.exports = BlackJack;
