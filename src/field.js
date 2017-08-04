@@ -1,10 +1,10 @@
 const Trump = require('./trump.js');
 
 class Field {
-  constructor() {
+  constructor () {
     this.deck = this.getAllCards();
   }
-  getAllCards() {
+  getAllCards () {
     let allTrump = [];
 
     for (let m of Trump.ALL_MARK) {
@@ -12,7 +12,7 @@ class Field {
         .fill(0)
         .map((_, i) => i + 1)
         .map(v => new Trump(m, v))
-      )
+      );
     }
     return allTrump;
   }

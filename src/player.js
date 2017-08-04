@@ -1,9 +1,9 @@
 class Player {
-  constructor(name) {
+  constructor (name) {
     this.name = name;
     this.cards = [];
   }
-  addCard(card) {
+  addCard (card) {
     this.cards.push(card);
   }
 }

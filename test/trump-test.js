@@ -4,7 +4,7 @@ const chai = require('chai'),
 const Trump = require('../src/trump.js');
 
 describe('trump', () => {
-  let trump = new Trump("clover", 1);
+  let trump = new Trump('clover', 1);
   it('１＋１＝２となるテスト', () => {
     assert(1 + 1 == 2);
   });

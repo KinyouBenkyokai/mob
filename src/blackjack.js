@@ -2,16 +2,15 @@ const ReadLineSync = require('readline-sync');
 const Field = require('./field');
 
 class BlackJack {
-  constructor() {
+  constructor () {
     this.filed = new Field();
     this.main();
   }
-  main() {
-
+  main () {
     let userInput = ReadLineSync.question('user:');
     console.log(`userInput : ${userInput}`);
   }
-  dealCard(player) {
+  dealCard (player) {
 
   }
 }
