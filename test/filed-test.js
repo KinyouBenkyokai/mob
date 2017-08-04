@@ -12,4 +12,9 @@ describe('Field', () => {
     field.shuffle();
     assert(JSON.stringify(field.deck) !== filedJSON);
   });
+  it('デッキからカードを取り出す', () => {
+    let lastCard = field.deck[field.deck.length - 1];
+    let card = field.drawCard();
+    assert(lastCard === card);
+  });
 });

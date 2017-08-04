@@ -1,2 +1,2 @@
 let BlackJack = require('./blackjack.js');
-new BlackJack();
+global.blackjack = new BlackJack();

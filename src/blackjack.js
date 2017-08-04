@@ -10,8 +10,5 @@ class BlackJack {
     let userInput = ReadLineSync.question('user:');
     console.log(`userInput : ${userInput}`);
   }
-  dealCard (player) {
-
-  }
 }
 module.exports = BlackJack;

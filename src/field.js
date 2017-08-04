@@ -19,6 +19,9 @@ class Field {
   shuffle () {
     return this.deck.sort(_ => Math.random() * 2 + 1);
   }
+  drawCard () {
+    return this.deck.pop();
+  }
 }
 
 module.exports = Field;
