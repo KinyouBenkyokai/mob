@@ -15,4 +15,3 @@ describe('trump',()=>{
         assert( Trump.MARK.H == 4 );
     });
 });
-console.log(1);
