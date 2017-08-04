@@ -9,9 +9,9 @@ describe('Field', ()=>{
         let card = field.getAllCards();
         assert(card.length == 4*13);
     });
-    it('シャッフル 目視しろ', ()=>{
-        console.log(field.deck);
+    it('シャッフル', ()=>{
+        let filedJSON = JSON.stringify(field.deck);
         field.shuffle();
-        console.log(field.deck);
+        assert(JSON.stringify(field.deck) != filedJSON);        
     });
 });
