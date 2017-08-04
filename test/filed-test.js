@@ -8,6 +8,7 @@ describe('Field', () => {
     assert(card.length === 4 * 13);
   });
   it('シャッフル', () => {
+    field.shuffle();
     let filedJSON = JSON.stringify(field.deck);
     field.shuffle();
     assert(JSON.stringify(field.deck) !== filedJSON);

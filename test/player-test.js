@@ -7,6 +7,6 @@ describe('player', () => {
   it('addCardのテスト', () => {
     let card = new Trump(Trump.MARK.C, 1);
     player.addCard(card);
-    assert(player.cards[0] === card);
+    assert(player.deck[0] === card);
   });
 });

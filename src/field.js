@@ -3,6 +3,7 @@ const Trump = require('./trump.js');
 class Field {
   constructor () {
     this.deck = this.getAllCards();
+    this.shuffle();
   }
   getAllCards () {
     let allTrump = [];
@@ -17,7 +18,7 @@ class Field {
     return allTrump;
   }
   shuffle () {
-    return this.deck.sort(_ => Math.random() * 2 + 1);
+    return this.deck.sort(_ => Math.random() * 2 - 1);
   }
   drawCard () {
     return this.deck.pop();
