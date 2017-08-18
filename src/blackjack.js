@@ -9,6 +9,13 @@ class BlackJack {
     this.main();
   }
   main () {
+    console.log(`dealer Turn`);
+    let dealer = new Player(`dealer`);
+    this.players.push( dealer );
+    dealer.deck.push(this.filed.drawCard());
+    console.log(`${dealer.name}'s deck:`);
+    dealer.showDeck();
+
     let userInput = ReadLineSync.question('user:');
     console.log(`userInput : ${userInput}`);
     let player = new Player(userInput);
@@ -17,12 +24,9 @@ class BlackJack {
     console.log(`${player.name}'s deck:`);
     player.showDeck();
 
-    console.log(`dealer Turn`);
-    let dealer = new Player(`dealer`);
-    this.players.push( dealer );
-    dealer.deck.push(this.filed.drawCard());
-    console.log(`${dealer.name}'s deck:`);
-    dealer.showDeck();
+  }
+
+  doTurn (int dealer, int player) {
     
   }
 }
