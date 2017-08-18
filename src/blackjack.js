@@ -16,6 +16,14 @@ class BlackJack {
     player.deck.push(this.filed.drawCard());
     console.log(`${player.name}'s deck:`);
     player.showDeck();
+
+    console.log(`dealer Turn`);
+    let dealer = new Player(`dealer`);
+    this.players.push( dealer );
+    dealer.deck.push(this.filed.drawCard());
+    console.log(`${dealer.name}'s deck:`);
+    dealer.showDeck();
+    
   }
 }
 module.exports = BlackJack;
