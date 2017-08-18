@@ -15,5 +15,8 @@ class Player {
       .join(' ');
     console.log(str);
   }
+  getDeckPower () {
+    
+  }
 }
 module.exports = Player;
