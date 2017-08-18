@@ -16,7 +16,14 @@ class Player {
     console.log(str);
   }
   getDeckPower () {
-    
+    let power = 0;
+    // 複製したデッキを13→1にソートする
+    let sorted = [].concat(this.deck).sort((a, b) => b.number - a.number);
+    for (let trump of sorted) {
+      power += trump.number;
+      // todo Aの処理
+    }
+    return power;
   }
 }
 module.exports = Player;

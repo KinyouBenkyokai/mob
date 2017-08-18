@@ -25,13 +25,20 @@ class BlackJack {
     let turnCount = 0;
     while (true) {
       turnCount++;
-      if (this.players.filter(_ => _.isEndTurn).length === this.players.length) { break; }
+
+      // すべての人が完了しているか
+      let compliteNum = this.players.filter(_ => _.isEndTurn).length;
+      if (compliteNum === this.players.length) { return; }
+
       for (let player of this.players) {
+        // 既にターンエンド宣言している人はスキップ
         if (player.isEndTurn) { continue; }
+
         player.deck.push(this.filed.drawCard());
         console.log(`${player.name}'s deck:`);
         player.showDeck();
-        if (turnCount > 2) {
+
+        if (turnCount > 2) { // 初手以外は入力を元にレイズ・スタンド
           let isContinue = ReadLineSync.question('continue?(y/n):');
           if (isContinue === 'n') { player.isEndTurn = true; }
         }
