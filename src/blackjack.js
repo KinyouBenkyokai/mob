@@ -22,11 +22,22 @@ class BlackJack {
   }
 
   doTurn () {
+    let turnCount = 0;
     while (true) {
+      if(this.players.filter(_=>_.isEndTurn).length == this.players.length)
+        break;
       for (let player of this.players) {
+        turnCount ++;
+        if(player.isEndTurn)
+          continue;
         player.deck.push(this.filed.drawCard());
         console.log(`${player.name}'s deck:`);
         player.showDeck();
+        if(turnCount > 2){
+          let isContinue = ReadLineSync.question('continue?(y/n):');
+          if(isContinue === 'n')
+            player.isEndTurn = true;
+        }
       }
       return;
     }

@@ -3,6 +3,7 @@ const Trump = require('../src/trump.js');
 class Player {
   constructor (name) {
     this.name = name;
+    this.isEndTurn = false;
     this.deck = [];
   }
   addCard (card) {
