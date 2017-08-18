@@ -35,11 +35,14 @@ describe('player', () => {
   });
   it('10以上', () => {
     let player = new Player('hoge');
+
     player.addCard(new Trump(Trump.MARK.C, 11));
     assert(player.getDeckPower() === 1);
+
     player.addCard(new Trump(Trump.MARK.D, 12));
-    assert(player.getDeckPower() === 2);
-    player.addCard(new Trump(Trump.MARK.D, 13));
     assert(player.getDeckPower() === 3);
+
+    player.addCard(new Trump(Trump.MARK.D, 13));
+    assert(player.getDeckPower() === 6);
   });
 });

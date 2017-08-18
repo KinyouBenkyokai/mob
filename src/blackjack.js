@@ -5,6 +5,7 @@ const Player = require('./player');
 class BlackJack {
   constructor () {
     this.filed = new Field();
+    /** @type {Player[]} */
     this.players = [];
     this.main();
   }
@@ -19,10 +20,11 @@ class BlackJack {
     this.players.push(new Player(userInput));
 
     this.doTurn();
+    this.checkPower();
   }
 
   doTurn () {
-    let turnCount = 0;
+    let turnCount = -2;
     while (true) {
       turnCount++;
 
@@ -35,14 +37,24 @@ class BlackJack {
         if (player.isEndTurn) { continue; }
 
         player.deck.push(this.filed.drawCard());
-        console.log(`${player.name}'s deck:`);
-        player.showDeck();
+        if (turnCount > 0) { // 初手以外は入力を元にレイズ・スタンド
+          console.log(`==== Turn ${turnCount} ====`);
+          console.log(`${player.name}'s Power:${player.getDeckPower()} Deck: `);
+          player.showDeck();
 
-        if (turnCount > 2) { // 初手以外は入力を元にレイズ・スタンド
           let isContinue = ReadLineSync.question('continue?(y/n):');
           if (isContinue === 'n') { player.isEndTurn = true; }
         }
       }
+    }
+  }
+
+  checkPower () {
+    console.log('==== result ====');
+    let maxPower = this.players.reduce((prev, curr) => Math.max(prev, curr.getDeckPower()), 0);
+    for (let player of this.players) {
+      console.log(`${player.name}: ${player.getDeckPower()}  ${player.getDeckPower() === maxPower ? '[WIN]' : '[LOSE]'}`);
+      // todo バーストした時LOSEみたいな感じ
     }
   }
 }

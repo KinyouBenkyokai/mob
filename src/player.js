@@ -26,10 +26,10 @@ class Player {
       if (trump.number === 1 && power < 12 - (ANumber--)) {
         power += 9;
       }
+      power += trump.number;
       if (trump.number > 10) {
         power -= 10;
       }
-      power += trump.number;
     }
     return power;
   }
