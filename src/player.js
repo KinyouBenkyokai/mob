@@ -33,5 +33,8 @@ class Player {
     }
     return power;
   }
+  isBurst(){
+    return this.getDeckPower() > 21;
+  }
 }
 module.exports = Player;

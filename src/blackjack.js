@@ -51,9 +51,12 @@ class BlackJack {
 
   checkPower () {
     console.log('==== result ====');
-    let maxPower = this.players.reduce((prev, curr) => Math.max(prev, curr.getDeckPower()), 0);
+    let maxPower = this.players
+        .filter(_=> !_.isBurst())
+        .reduce((prev, curr) => Math.max(prev, curr.getDeckPower()), 0);
     for (let player of this.players) {
-      console.log(`${player.name}: ${player.getDeckPower()}  ${player.getDeckPower() === maxPower ? '[WIN]' : '[LOSE]'}`);
+      let isWin = player.getDeckPower() === maxPower;
+      console.log(`${player.name}: ${player.getDeckPower()}  ${ isWin ? '[WIN]' : '[LOSE]'}`);
       // todo バーストした時LOSEみたいな感じ
     }
   }
