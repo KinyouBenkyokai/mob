@@ -12,4 +12,8 @@ describe('trump', () => {
   it('staticなマークを取得できる', () => {
     assert(Trump.MARK.H === 4);
   });
+  it('数字からマークの変換', () => {
+    assert(Trump.numToMarkStr(1) === 'D');
+    assert(Trump.numToMarkStr(4) === 'H');
+  });
 });

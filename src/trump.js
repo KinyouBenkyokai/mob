@@ -15,6 +15,12 @@ class Trump {
       H: 4
     };
   };
+  static numToMarkStr (num) {
+    for (let mark in this.MARK) {
+      let key = this.MARK[mark];
+      if (key === num) return mark;
+    }
+  }
   constructor (mark, number) {
     this.mark = mark;
     this.number = number;

@@ -9,25 +9,27 @@ class BlackJack {
     this.main();
   }
   main () {
+    // ディーラーを生成
     console.log(`dealer Turn`);
-    let dealer = new Player(`dealer`);
-    this.players.push( dealer );
-    dealer.deck.push(this.filed.drawCard());
-    console.log(`${dealer.name}'s deck:`);
-    dealer.showDeck();
+    this.players.push(new Player(`dealer`));
 
+    // プレイヤーを生成
     let userInput = ReadLineSync.question('user:');
     console.log(`userInput : ${userInput}`);
-    let player = new Player(userInput);
-    this.players.push( player );
-    player.deck.push(this.filed.drawCard());
-    console.log(`${player.name}'s deck:`);
-    player.showDeck();
+    this.players.push(new Player(userInput));
 
+    this.doTurn();
   }
 
-  doTurn (int dealer, int player) {
-    
+  doTurn () {
+    while (true) {
+      for (let player of this.players) {
+        player.deck.push(this.filed.drawCard());
+        console.log(`${player.name}'s deck:`);
+        player.showDeck();
+      }
+      return;
+    }
   }
 }
 module.exports = BlackJack;
