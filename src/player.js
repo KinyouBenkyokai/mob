@@ -20,11 +20,14 @@ class Player {
     // 複製したデッキを13→1にソートする
     let sorted = [].concat(this.deck).sort((a, b) => b.number - a.number);
     // Aの枚数を取得する
-    let ANumber = this.deck.filter(_=> _.number===1).length;
+    let ANumber = this.deck.filter(_ => _.number === 1).length;
     for (let trump of sorted) {
       // バースト処理
-      if( trump.number === 1 && power < 12 - (ANumber--) ){
-        trump.number = 1;
+      if (trump.number === 1 && power < 12 - (ANumber--)) {
+        power += 9;
+      }
+      if (trump.number > 10) {
+        power -= 10;
       }
       power += trump.number;
     }
