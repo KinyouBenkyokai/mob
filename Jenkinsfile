@@ -1,7 +1,6 @@
 pipeline {
   agent {
     docker {
-      args 'aaa'
       image 'node:9-alpine'
     }
 
